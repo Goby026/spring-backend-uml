@@ -1,5 +1,6 @@
 package dev.uml.selva.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -35,7 +36,12 @@ public class Trabajador implements Serializable {
     @JoinColumn(name = "cargoid", nullable = true)
     private CargoTrabajador cargo;
 
-    private String fechaing;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date fechaing;
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date fechanac;
+
     private String reglab;
     private String correoper;
     private String correoins;
